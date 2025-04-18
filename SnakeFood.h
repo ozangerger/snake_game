@@ -2,34 +2,37 @@
 #define SNAKEFOOD_H
 #include <SFML/Graphics.hpp>
 #include <deque>
-#include "base.h"
+#include <random>
+#include <chrono>
 
-class Snake;
+static std::mt19937 gen{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
+std::uniform_int_distribution<> xDistrib{ 0U, gameSize - 1U };
+std::uniform_int_distribution<> yDistrib{ 0U, gameSize - 1U };
 
 class SnakeFood : public sf::Drawable {
 public:
     SnakeFood() = delete;
 
-    SnakeFood(const Snake& snake) {
+    SnakeFood(const std::deque<sf::CircleShape>& body) {
         food.setPosition(sf::Vector2f(static_cast<float>(xDistrib(gen)) * moveStep, static_cast<float>(yDistrib(gen)) * moveStep));
 
         food.setFillColor(sf::Color::Green);
 
 
-        UpdateFoodLocation(snake);
+        UpdateFoodLocation(body);
     }
 
-    void UpdateFoodLocation(const Snake& snake) {
-        while ( SearchBody(snake, this->food.getPosition()) )
+    void UpdateFoodLocation(const std::deque<sf::CircleShape>& body) {
+        while ( SearchBody(body, this->food.getPosition()) )
         {
             food.setPosition(sf::Vector2f(static_cast<float>(xDistrib(gen)) * moveStep, static_cast<float>(yDistrib(gen)) * moveStep));
         }
     }
 
-    bool    SearchBody(const Snake&         snake,
+    bool    SearchBody(const std::deque<sf::CircleShape>& body,
                        const sf::Vector2f&  foodPosition) const
     {
-        for (const sf::CircleShape& segment : snake.GetBody())
+        for (const sf::CircleShape& segment : body)
         {
             if (segment.getPosition() == foodPosition)
             {

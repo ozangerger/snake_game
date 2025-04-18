@@ -18,7 +18,7 @@ int main()
     sf::Time timeSinceLastMove = sf::Time::Zero;
 
     Snake snake(10U);
-    SnakeFood snakeFood(snake);
+    SnakeFood snakeFood(snake.GetBody());
 
     // run the main loop
     while (window.isOpen())

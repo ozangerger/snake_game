@@ -3,8 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <deque>
 #include <cmath>
+#include "base.h"
 #include "SnakeFood.h"
-
 
 class Snake : public sf::Drawable
 {
@@ -49,7 +49,7 @@ public:
             m_vertices.pop_front();
         }
         else {
-            snakeFood.UpdateFoodLocation(*this);
+            snakeFood.UpdateFoodLocation(this->GetBody());
         }
 
         m_prev_direction = direction;
