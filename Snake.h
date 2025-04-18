@@ -31,6 +31,25 @@ public:
 
         sf::CircleShape circle(m_vertices.back());
         circle.move(newDirVec);
+        // check wrapping
+        
+        if (circle.getPosition().x > (gameSize - 1U) * moveStep)
+        {
+            circle.setPosition(sf::Vector2f(0.0f, circle.getPosition().y));
+        }
+        else if (circle.getPosition().x < 0.0F)
+        {
+            circle.setPosition(sf::Vector2f((gameSize - 1U) * moveStep, circle.getPosition().y));
+        }
+        else if (circle.getPosition().y > (gameSize - 1U) * moveStep) {
+            circle.setPosition(sf::Vector2f(circle.getPosition().x, 0.0F));
+        }
+        else if (circle.getPosition().y < 0.0F) {
+            circle.setPosition(sf::Vector2f(circle.getPosition().x, (gameSize - 1U) * moveStep));
+        }
+        else {
+            // do nothing
+        }
         // check collision
         for (auto& segment : m_vertices) {
             if (segment.getPosition() == circle.getPosition())

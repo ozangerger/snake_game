@@ -3,6 +3,7 @@
 #include "SnakeFood.h"
 
 
+
 int main()
 {
     // create the window
@@ -45,9 +46,9 @@ int main()
         if (snake.gameOver()) {
             sf::Font font("arial.ttf");
 
-            sf::Text gameOverText(font, "GAME OVER", 8);
+            sf::Text gameOverText(font, "GAME OVER", 12);
             gameOverText.setFillColor(sf::Color::Red);
-            gameOverText.setPosition(sf::Vector2f(static_cast<float>(gameSize) * moveStep / 2.0F, static_cast<float>(gameSize) * moveStep / 2.0F));
+            gameOverText.setPosition(sf::Vector2f(static_cast<float>(gameSize) * moveStep / 3.0F, static_cast<float>(gameSize) * moveStep / 3.0F));
 
             window.clear();
             window.draw(snake);
@@ -55,7 +56,7 @@ int main()
             window.draw(gameOverText);
             window.display();
 
-            sf::sleep(sf::seconds(10));
+            sf::sleep(sf::seconds(3));
             window.close();
         }
 
