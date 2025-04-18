@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "include/Snake.h"
-#include "include/SnakeFood.h"
+#include "Snake.h"
+#include "SnakeFood.h"
 
 
 
@@ -44,7 +44,7 @@ int main()
         }
 
         if (snake.gameOver()) {
-            sf::Font font("resources/arial.ttf");
+            sf::Font font("arial.ttf");
 
             sf::Text gameOverText(font, "GAME OVER", 12);
             gameOverText.setFillColor(sf::Color::Red);

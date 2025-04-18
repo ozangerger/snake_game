@@ -138,9 +138,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="base.h" />
-    <ClInclude Include="Snake.h" />
-    <ClInclude Include="SnakeFood.h" />
+    <ClInclude Include="include\base.h" />
+    <ClInclude Include="include\Snake.h" />
+    <ClInclude Include="include\SnakeFood.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,13 +20,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Snake.h">
+    <ClInclude Include="include\base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="base.h">
+    <ClInclude Include="include\Snake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SnakeFood.h">
+    <ClInclude Include="include\SnakeFood.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
