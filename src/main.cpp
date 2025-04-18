@@ -43,7 +43,7 @@ int main()
         }
 
         if (snake.gameOver()) {
-            sf::Font font("arial.ttf");
+            sf::Font font("Resources/arial.ttf");
 
             sf::Text gameOverText(font, "GAME OVER", 12);
             gameOverText.setFillColor(sf::Color::Red);
