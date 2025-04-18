@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "Snake.h"
-#include "SnakeFood.h"
-
+#include "../include/Snake.h"
+#include "../include/SnakeFood.h"
 
 
 int main()
